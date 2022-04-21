@@ -1,11 +1,149 @@
 ---
-title: "Home"
 site: workflowr::wflow_site
+title: "Análisis de microbioma fecal en ensayo clínico."
+author: "Marc Noguera-Julian, PhD. TreeTopUnder"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{lipsum}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{Microbioma intestinal canino en intervencion nutricional}
+- \fancyfoot[LO,RE]{Marc Noguera-Julian, TreeTopUnder}
+- \fancyhead[LE,RO]{\thepage}
+- \fancyfoot[CO,CE]{}
+- \usepackage[default]{sourcesanspro}
+- \usepackage[T1]{fontenc}
+- \usepackage{eso-pic,graphicx,transparent}
+mainfont: Helvetica
 output:
   workflowr::wflow_html:
     toc: false
 editor_options:
   chunk_output_type: console
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = here::here())
+```
+# Datos del Proyecto
 
-Welcome to my research website.
+Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clinico. El ensayo consta de una intervención nutricional en un grupo de perros. En un subgrupo de perros se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet)
+Asimismo, cada animal puede estar esterilizado o no (variable neutered Y/N)
+
+Codigo TreeTopUnder: AffinityDogs-16S
+
+Cliente: 
+
+ * VetGenomics – Olga Francino Martí
+ * Parc de Recerca de la UAB.Edifici Eureka. Campus UAB. 08193 Bellaterra. Barcelona. Spain.
+ * ContactoÑ:Olga Francino Martí (direccio@vetgenomics.com)
+
+# Objetivo
+El objetivo del estudio es caracterizar los cambios en el microbioma intestinal canino en perros que se someten a un cambio de dieta.
+
+# Métodos
+
+## Analisis de datos de secuencia.
+Los datos crudos recibidos (formato FASTQ) se han obtenido usando un dieseño de amplicon unico en la region 16S del gen del RNA ribosomico (rDNA), amplificando la sub-region variable V3-V4 mediante PCR y usando secuenciación de última generación (Illumina/MiSeq) sobre las librerias obtenidas. Asi, las lecturas crudas obtenides tienen una longitud de 300 nt en un esquema paired-end (300 nt en lecturas forward y 300 nt en lecturas en reverse) sobre un amplicon de entre 450 y 500 nt, por lo que las lecturas forward y reverse tienen cierto grado de solapamiento que se usa para mejorar la calidad de los datos.
+En base a los datos crudos obtenidos de muestras orales (saliva) de los pacientes se ha realizado el análisis de secuencia dentro del framework R::DADA2. Este software nos permite obtener secuencias exactas de las variantes estudiadas (Amplicon Sequence Variants o ASV) y una informació de contaje y asignación taxonómica de cada una de ellas. El proceso de análisi se secuencia se divide en los siguientes pasos:
+
+* Control de calidad. Se eliminan las secuencias con demasiado error acumulado en la lectura forward o reverse, de froma independiente. Se eliminan las secuencias demasiados cortas.
+* Se calcula el modelo de error especifico del experimento de secuenciación.
+* Se utilitza el modelo de error obtenido para inferir las variantes ASV a partir de las lecturas
+* Se solapan las lecturas forward y reverse para obtener una secuencia unica por fragmento.
+* Se eliminan del dataset las secuencias quimericas provenientes de reacciones PCR incompletas.
+* Se asigna cada una de las variantes ASV a un grupo taxonomico, usando la base de datos Silva (v138)
+* Usando las secuencias genéticas de cada una de las variantes ASV se calcula un alineamiento multiple y un arbol filogenético que relaciona evolutivamente las ASV entre ellas.
+* Se empaquetan los resultados en un paquete de datos tipo R::phyloseq para el análisis posterior. 
+
+De esta forma, obtenemos un paquete de datos que contiene entidades ASV representativas de los diferentes taxones bacterianos presentes en la muestra y, para cada muestra, valores de contaje cuantitativo de cada uno de estos taxones. Ademas, obtenemos la distancia genética entre pares de taxones que nos permitirá calcular indiced de similitud entre las muestras.
+
+El numero de secuencias obtenidas para este proceso, después de todos los pasos de proceso y control de calidad debe ser suficiente para cada muestra para poder caracterizar el microbioma de la muestra.
+
+Se usan estimadores Chao1 y Shannon para quantificar los paramteros de riqueza y diversidad de la muestra(alpha-diversity). Se usan tests no-parametricos para comparar parametros de alfa-diversidad y beta-diversidad entre grupos formados por las variables de interés. Se usan estimadores Chao1 y Shannon para quantificar los paramteros de riqueza y diversidad de la muestra(alpha-diversity). Se usa distancia WUnifrac para calcular similitud entre la composición de las muestras (Beta-diversity). Se usan non-metric dimensional scaling (NMDS) para el análisis de ordenacion basandose en la distancia WUnifrac. Se usa el paquete lefser para determinar generos bacterianos diferencialmente abundantes entre grupos formados por las variables de interés.
+
+# Resultados
+
+## Metadatos
+
+_Deliverables: FinalMetadata.xls y 16SDataAvailability.xls_
+
+Cada uno de los ficheros FASTQ esta identificado con un código del formato _11754AAC-AFF-2A_ que identifica una muestra de heces. Existen datos de secuenciación para 53 muestras, incluyendi controles y muestras de heces recogidas durante el ensayo. Se proporcionan metadatos para 47 identificadores muestra de heces esta ligada a un _Code_ que identifica la muestra y un _Individuo_ que identifica al animal del que se han obtenido las heces. Una de las muestras corresponde a un animal (dog_name="Charlotte") que solo ha proporcionado una muestra. Esta muestra se eliminara de los análisis apareados. Además, para cada muestra se dispone de las siguientes variables: 
+
+* ID: Identificador numérico del animal
+* dog_name: Nombre del animal
+* treatment: Tipo de dieta (d/w1/w2). "d" denota dieta basada en pienso seco. "w1" denota dieta basada en combinación de pienso seco y pienso húmedo. "w2" denota dieta basada en combinación de pienso seco y doble proporción de pienso humedo.
+* dry_wet: Agregacion de la variable treatment en d/w
+* T0_bw: Peso corporal basal
+* size: Tamaño del animal (*S*mall / *M*edium)
+* neutered: Booleano relativo a la castración del animal
+* BCS:
+* time_point: punto temporal (t0 / t1). "t0" denota el punto temporal antes de la intervencion (cambio de dieta) y t1, el punto temporal despues del cambio de dieta segun el diseño del estudio.
+
+De las 53 muestras disponibles, 6 muestras pertenecen a controles que no se usaran para el análisis mas alla del control de calidad:
+
+* MOCK, son controles positivos _Mock_ con una composición conocida y predeterminada.
+* BA, PCR1, PCR2 y Ext  corresponden con un blanco ambiental y dos blancos de PCR y uno de extracción.
+* Neg: Control Negativo.
+
+En el dataset resultante, se usaran exclusivamente las ASV anotadas taxonómicamente a Bacteria o Arqueas (Kingdom = Archaea o Kingdom = Bacteria)
+
+```{r Consolidación de datos y metadatos, echo=F, message=FALSE, warning=FALSE, paged.print=FALSE}
+suppressWarnings(require(phyloseq))
+suppressWarnings(require(pander))
+suppressWarnings(require(here))
+suppressWarnings(require(phylosmith))
+suppressWarnings(require(tidyverse))
+suppressWarnings(require(ggplot2))
+load("data/raw/DADA2/DADA2_Rsession.RData")
+suppressWarnings(metadata_df<-read.delim("data/raw/Metadata/metadata.csv",check.names=F,sep = "\t"))
+rownames(metadata_df)<-metadata_df$SampleID
+mock_samples<-c("11801AAC-AFF-MOCK")
+control_samples<-c("11802AAC-AFF-BA","11803AAC-D6306-1","11804AAC-Cneg","11805AAC-D6306-2","11788AAC-AFF-B-Ext")
+# low_throughput_samples<-c("S01993AAD-M105")
+# metadata_df[,"sample_type"]<-"specimen"
+# metadata_df[metadata_df$SampleID %in% control_samples,"sample_type"]<-"Control"
+metadata_df[metadata_df$SampleID %in% mock_samples,"sample_type"]<-"mock"
+metadata_df <-merge(metadata_df,track,by="row.names")
+rownames(metadata_df)<-metadata_df$SampleID
+
+ # xtabs(~neutered+treatment,data=metadata_df) %>% chisq.test()
+sample_data(ps_silva)<-metadata_df
+
+metadata_df %>%
+  ggstatsplot::ggbetweenstats(x=sample_type,y=nonchim,title = "Throughput vs Sample Type",
+                              type="nonparametric",bf.message = F,
+                              outlier.tagging = T,outlier.label = SampleID)
+# 
+# phylosmith::phylogeny_profile((phyloseq::prune_samples( sample_data(ps_silva)$specimen == "control", ps_silva)),classification="Genus",relative_abundance=F,sample_labels = NULL)+
+#  theme( panel.grid = element_blank(),axis.title = element_blank(), axis.text = element_blank())+
+#   theme(axis.title.x=element_blank(),axis.text.x=element_blank(),axis.ticks.x=element_blank())
+# ggsave(p4,filename="output/Deliverables/StackedBarplots_Genus_Mock.pdf")
+
+#Most of the control sample have zero reads
+xlsx::write.xlsx(metadata_df,"output/Deliverables/FinalMetadata.xlsx")
+metadata_df<-metadata_df[! is.na(metadata_df$SampleID),]
+rownames(metadata_df)<-metadata_df$SampleID
+ps_silva<-phyloseq::prune_samples(! sample_names(ps_silva) %in% control_samples, ps_silva)
+ps_silva<-phyloseq::prune_samples(! sample_names(ps_silva) %in% mock_samples, ps_silva)
+# ps_silva<-phyloseq::prune_samples(! sample_names(ps_silva) %in% low_throughput_samples, ps_silva)
+ps_silva<-phyloseq::subset_taxa(ps_silva,Kingdom %in% c("Bacteria","Archaea"))
+min_throughput<-otu_table(ps_silva) %>% colSums() %>% min()
+max_throughput<-otu_table(ps_silva) %>% colSums() %>% max()
+saveRDS(ps_silva,file="data/ps_silva.rds")
+```
+
+Las caracteristicas del dataset a analizar son:
+ 
+ * 47 muestras de microbioma fecal de perros: 
+    ** 24 de punto t0 y 23 de punto t1
+ * 1 muestra mock con composición conocida.
+ * un total de `r phyloseq::ntaxa(ps_silva)` ASV incluyendo singleton, al final del análisi de secuencia
+ * Asignación taxonomica hasta nivel de genero bacteriano para cada ASV
+ * Arbol filogenético asociado a las taxas(ASV), necesario para calcular distancias de beta-diversidad WUnifrac.
+ 
+```{r data summary,eval=T, echo=F, message=FALSE, warning=FALSE, paged.print=FALSE}
+ps_silva<-readRDS("data/ps_silva.rds")
+ps_silva
+ # data.frame(sample_data(ps_silva)) %>% DataExplorer::create_report(output_file = "docs/MetadataExplorer.html")
+```

@@ -5,8 +5,12 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: About
-    href: about.html
+  - text: Exploratorio
+    href: Exploratory_v1.html
+  - text: Longitudinal
+    href: Longitudinal_v1.html
+  - text: Conclusiones
+    href: Conclusiones_v1.html
   - text: License
     href: license.html
 output:
