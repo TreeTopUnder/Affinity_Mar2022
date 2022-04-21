@@ -88,7 +88,7 @@ De las 53 muestras disponibles, 6 muestras pertenecen a controles que no se usar
 
 En el dataset resultante, se usaran exclusivamente las ASV anotadas taxonómicamente a Bacteria o Arqueas (Kingdom = Archaea o Kingdom = Bacteria)
 
-```{r Consolidación de datos y metadatos, echo=F, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r Consolidacion de datos y metadatos, echo=F, message=FALSE, warning=FALSE, paged.print=FALSE}
 suppressWarnings(require(phyloseq))
 suppressWarnings(require(pander))
 suppressWarnings(require(here))
