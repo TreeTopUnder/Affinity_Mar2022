@@ -36,7 +36,7 @@ Cliente:
 
  * VetGenomics – Olga Francino Martí
  * Parc de Recerca de la UAB.Edifici Eureka. Campus UAB. 08193 Bellaterra. Barcelona. Spain.
- * ContactoÑ:Olga Francino Martí (direccio@vetgenomics.com)
+ * Contacto: Olga Francino Martí (direccio@vetgenomics.com)
 
 # Objetivo
 El objetivo del estudio es caracterizar los cambios en el microbioma intestinal canino en perros que se someten a un cambio de dieta.
