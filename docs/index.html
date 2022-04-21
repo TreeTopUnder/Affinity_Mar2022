@@ -293,7 +293,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -302,7 +302,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -314,7 +314,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2022-04-21
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Affinity_Mar2022/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -330,12 +330,12 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -402,16 +402,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomTreeTopUnderAffinityMar2022tree083253f0e412f1edc6e03108cb87cca45c762b72targetblank083253fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/TreeTopUnder/Affinity_Mar2022/tree/083253f0e412f1edc6e03108cb87cca45c762b72" target="_blank">083253f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomTreeTopUnderAffinityMar2022tree7ba935b04964fa6e1e931638226b0384827dbc2dtargetblank7ba935ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/TreeTopUnder/Affinity_Mar2022/tree/7ba935b04964fa6e1e931638226b0384827dbc2d" target="_blank">7ba935b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomTreeTopUnderAffinityMar2022tree083253f0e412f1edc6e03108cb87cca45c762b72targetblank083253fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomTreeTopUnderAffinityMar2022tree7ba935b04964fa6e1e931638226b0384827dbc2dtargetblank7ba935ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/TreeTopUnder/Affinity_Mar2022/tree/083253f0e412f1edc6e03108cb87cca45c762b72" target="_blank">083253f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/TreeTopUnder/Affinity_Mar2022/tree/7ba935b04964fa6e1e931638226b0384827dbc2d" target="_blank">7ba935b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -431,14 +431,6 @@ Ignored files:
     Ignored:    output/.DS_Store
     Ignored:    output/Deliverables/
     Ignored:    output/boxplots/
-
-Untracked files:
-    Untracked:  MetadataExplorer.html
-
-Unstaged changes:
-    Modified:   .gitignore
-    Modified:   analysis/_site.yml
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -482,6 +474,57 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/TreeTopUnder/Affinity_Mar2022/blob/7ba935b04964fa6e1e931638226b0384827dbc2d/analysis/index.Rmd" target="_blank">7ba935b</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-21
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/TreeTopUnder/Affinity_Mar2022/blob/b5a5ac04d7b96f6fe8c3a0cf546978c65ae2fccf/analysis/index.Rmd" target="_blank">b5a5ac0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-21
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/TreeTopUnder/Affinity_Mar2022/b5a5ac04d7b96f6fe8c3a0cf546978c65ae2fccf/docs/index.html" target="_blank">b5a5ac0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-21
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/TreeTopUnder/Affinity_Mar2022/blob/083253f0e412f1edc6e03108cb87cca45c762b72/analysis/index.Rmd" target="_blank">083253f</a>
 </td>
 <td>
@@ -503,7 +546,7 @@ Start workflowr project.
 </div>
 <div id="datos-del-proyecto" class="section level1">
 <h1>Datos del Proyecto</h1>
-<p>Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clinico. El ensayo consta de una intervención nutricional en un grupo de perros. En un subgrupo de perros se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet) Asimismo, cada animal puede estar esterilizado o no (variable neutered Y/N)</p>
+<p>Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clinico. El ensayo consta de una intervención nutricional en tres grupos independientes de perros doméstico, mediante cambio de pienso. En cada grupo se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet) Asimismo, cada animal puede estar esterilizado o no (variable neutered Y/N)</p>
 <p>Codigo TreeTopUnder: AffinityDogs-16S</p>
 <p>Cliente:</p>
 <ul>
@@ -561,6 +604,43 @@ Start workflowr project.
 </ul>
 <p>En el dataset resultante, se usaran exclusivamente las ASV anotadas taxonómicamente a Bacteria o Arqueas (Kingdom = Archaea o Kingdom = Bacteria)</p>
 <p><img src="figure/index.Rmd/Consolidacio%CC%81n%20de%20datos%20y%20metadatos-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-Consolidación-de-datos-y-metadatos-1">
+Past versions of "Consolidación de datos y metadatos-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-Consolidación-de-datos-y-metadatos-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TreeTopUnder/Affinity_Mar2022/blob/b5a5ac04d7b96f6fe8c3a0cf546978c65ae2fccf/docs/figure/index.Rmd/Consolidación de datos y metadatos-1.png" target="_blank">b5a5ac0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-21
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Las caracteristicas del dataset a analizar son:</p>
 <ul>
 <li>47 muestras de microbioma fecal de perros: ** 24 de punto t0 y 23 de punto t1</li>
@@ -600,7 +680,7 @@ other attached packages:
  [1] forcats_0.5.1    stringr_1.4.0    dplyr_1.0.8      purrr_0.3.4     
  [5] readr_2.1.2      tidyr_1.2.0      tibble_3.1.6     ggplot2_3.3.5   
  [9] tidyverse_1.3.1  phylosmith_1.0.6 here_1.0.1       pander_0.6.5    
-[13] phyloseq_1.38.0 
+[13] phyloseq_1.38.0  workflowr_1.7.0 
 
 loaded via a namespace (and not attached):
   [1] utf8_1.2.2             tidyselect_1.1.2       grid_4.1.1            
@@ -617,8 +697,8 @@ loaded via a namespace (and not attached):
  [34] bitops_1.0-7           rhdf5filters_1.6.0     cachem_1.0.6          
  [37] reshape_0.8.8          assertthat_0.2.1       promises_1.2.0.1      
  [40] scales_1.1.1           ggraph_2.0.5           gtable_0.3.0          
- [43] multcompView_0.1-8     xlsx_0.6.5             tidygraph_1.2.0       
- [46] workflowr_1.7.0        rlang_1.0.2            zeallot_0.1.0         
+ [43] multcompView_0.1-8     processx_3.5.2         xlsx_0.6.5            
+ [46] tidygraph_1.2.0        rlang_1.0.2            zeallot_0.1.0         
  [49] PMCMRplus_1.9.3        splines_4.1.1          prismatic_1.1.0       
  [52] broom_0.7.12           yaml_2.3.5             reshape2_1.4.4        
  [55] modelr_0.1.8           backports_1.4.1        httpuv_1.6.5          
@@ -627,35 +707,36 @@ loaded via a namespace (and not attached):
  [64] RColorBrewer_1.1-2     proxy_0.4-26           BiocGenerics_0.40.0   
  [67] WRS2_1.1-3             Rcpp_1.0.8.3           plyr_1.8.6            
  [70] zlibbioc_1.40.0        classInt_0.4-3         RCurl_1.98-1.6        
- [73] viridis_0.6.2          correlation_0.8.0      S4Vectors_0.32.3      
- [76] haven_2.4.3            ggrepel_0.9.1          cluster_2.1.2         
- [79] fs_1.5.2               magrittr_2.0.2         data.table_1.14.2     
- [82] reprex_2.0.1           mvtnorm_1.1-3          whisker_0.4           
- [85] xlsxjars_0.6.1         hms_1.1.1              patchwork_1.1.1       
- [88] evaluate_0.15          readxl_1.3.1           IRanges_2.28.0        
- [91] gridExtra_2.3          compiler_4.1.1         ggstatsplot_0.9.1     
- [94] KernSmooth_2.23-20     crayon_1.5.0           htmltools_0.5.2       
- [97] mgcv_1.8-39            mc2d_0.1-21            later_1.3.0           
-[100] tzdb_0.2.0             RcppParallel_5.1.5     lubridate_1.8.0       
-[103] DBI_1.1.2              SuppDists_1.1-9.7      kSamples_1.2-9        
-[106] tweenr_1.0.2           dbplyr_2.1.1           MASS_7.3-55           
-[109] sf_1.0-7               boot_1.3-28            Matrix_1.4-0          
-[112] ade4_1.7-18            permute_0.9-7          cli_3.2.0             
-[115] parallel_4.1.1         insight_0.16.0         igraph_1.2.11         
-[118] pkgconfig_2.0.3        statsExpressions_1.3.0 xml2_1.3.3            
-[121] paletteer_1.4.0        foreach_1.5.2          bslib_0.3.1           
-[124] multtest_2.50.0        XVector_0.34.0         rvest_1.0.2           
-[127] digest_0.6.29          parameters_0.17.0      vegan_2.5-7           
-[130] Biostrings_2.62.0      rmarkdown_2.13         cellranger_1.1.0      
-[133] lifecycle_1.0.1        nlme_3.1-155           jsonlite_1.8.0        
-[136] modules_0.10.0         Rhdf5lib_1.16.0        viridisLite_0.4.0     
-[139] fansi_1.0.2            pillar_1.7.0           lattice_0.20-45       
-[142] fastmap_1.1.0          httr_1.4.2             survival_3.3-1        
-[145] glue_1.6.2             bayestestR_0.11.5      iterators_1.0.14      
-[148] ggforce_0.3.3          class_7.3-20           stringi_1.7.6         
-[151] sass_0.4.0             performance_0.8.0      rematch2_2.1.2        
-[154] memoise_2.0.1          Rmpfr_0.8-7            e1071_1.7-9           
-[157] ape_5.6-2             </code></pre>
+ [73] ps_1.6.0               viridis_0.6.2          correlation_0.8.0     
+ [76] S4Vectors_0.32.3       haven_2.4.3            ggrepel_0.9.1         
+ [79] cluster_2.1.2          fs_1.5.2               magrittr_2.0.2        
+ [82] data.table_1.14.2      reprex_2.0.1           mvtnorm_1.1-3         
+ [85] whisker_0.4            xlsxjars_0.6.1         hms_1.1.1             
+ [88] patchwork_1.1.1        evaluate_0.15          readxl_1.3.1          
+ [91] IRanges_2.28.0         gridExtra_2.3          compiler_4.1.1        
+ [94] ggstatsplot_0.9.1      KernSmooth_2.23-20     crayon_1.5.0          
+ [97] htmltools_0.5.2        mgcv_1.8-39            mc2d_0.1-21           
+[100] later_1.3.0            tzdb_0.2.0             RcppParallel_5.1.5    
+[103] lubridate_1.8.0        DBI_1.1.2              SuppDists_1.1-9.7     
+[106] kSamples_1.2-9         tweenr_1.0.2           dbplyr_2.1.1          
+[109] MASS_7.3-55            sf_1.0-7               boot_1.3-28           
+[112] Matrix_1.4-0           ade4_1.7-18            permute_0.9-7         
+[115] cli_3.2.0              parallel_4.1.1         insight_0.16.0        
+[118] igraph_1.2.11          pkgconfig_2.0.3        getPass_0.2-2         
+[121] statsExpressions_1.3.0 xml2_1.3.3             paletteer_1.4.0       
+[124] foreach_1.5.2          bslib_0.3.1            multtest_2.50.0       
+[127] XVector_0.34.0         rvest_1.0.2            callr_3.7.0           
+[130] digest_0.6.29          parameters_0.17.0      vegan_2.5-7           
+[133] Biostrings_2.62.0      rmarkdown_2.13         cellranger_1.1.0      
+[136] lifecycle_1.0.1        nlme_3.1-155           jsonlite_1.8.0        
+[139] modules_0.10.0         Rhdf5lib_1.16.0        viridisLite_0.4.0     
+[142] fansi_1.0.2            pillar_1.7.0           lattice_0.20-45       
+[145] fastmap_1.1.0          httr_1.4.2             survival_3.3-1        
+[148] glue_1.6.2             bayestestR_0.11.5      iterators_1.0.14      
+[151] ggforce_0.3.3          class_7.3-20           stringi_1.7.6         
+[154] sass_0.4.0             performance_0.8.0      rematch2_2.1.2        
+[157] memoise_2.0.1          Rmpfr_0.8-7            e1071_1.7-9           
+[160] ape_5.6-2             </code></pre>
 </div>
 </div>
 </div>
