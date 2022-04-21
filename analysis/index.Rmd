@@ -27,7 +27,7 @@ knitr::opts_knit$set(root.dir = here::here())
 ```
 # Datos del Proyecto
 
-Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clinico. El ensayo consta de una intervención nutricional en un grupo de perros. En un subgrupo de perros se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet)
+Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clinico. El ensayo consta de una intervención nutricional en tres grupos independientes de perros doméstico, mediante cambio de pienso. En cada grupo se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet)
 Asimismo, cada animal puede estar esterilizado o no (variable neutered Y/N)
 
 Codigo TreeTopUnder: AffinityDogs-16S
