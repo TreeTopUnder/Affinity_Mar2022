@@ -27,7 +27,7 @@ knitr::opts_knit$set(root.dir = here::here())
 ```
 # Datos del Proyecto
 
-Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clinico. El ensayo consta de una intervención nutricional en tres grupos independientes de perros doméstico, mediante cambio de pienso. En cada grupo se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet)
+Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clínico. El ensayo consta de una intervención nutricional en tres grupos independientes de perros domésticos, mediante cambio de pienso en la dieta. En cada grupo se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet)
 Asimismo, cada animal puede estar esterilizado o no (variable neutered Y/N)
 
 Codigo TreeTopUnder: AffinityDogs-16S
@@ -60,7 +60,7 @@ De esta forma, obtenemos un paquete de datos que contiene entidades ASV represen
 
 El numero de secuencias obtenidas para este proceso, después de todos los pasos de proceso y control de calidad debe ser suficiente para cada muestra para poder caracterizar el microbioma de la muestra.
 
-Se usan estimadores Chao1 y Shannon para quantificar los paramteros de riqueza y diversidad de la muestra(alpha-diversity). Se usan tests no-parametricos para comparar parametros de alfa-diversidad y beta-diversidad entre grupos formados por las variables de interés. Se usan estimadores Chao1 y Shannon para quantificar los paramteros de riqueza y diversidad de la muestra(alpha-diversity). Se usa distancia WUnifrac para calcular similitud entre la composición de las muestras (Beta-diversity). Se usan non-metric dimensional scaling (NMDS) para el análisis de ordenacion basandose en la distancia WUnifrac. Se usa el paquete lefser para determinar generos bacterianos diferencialmente abundantes entre grupos formados por las variables de interés.
+Se usan estimadores Chao1 y Shannon para quantificar los parámetros de riqueza y diversidad de la muestra(alpha-diversity). Se usan tests no-paramétricos para comparar parametros de alfa-diversidad y beta-diversidad entre grupos formados por las variables de interés. Se usan estimadores Chao1 y Shannon para cuantificar los parámetros de riqueza y diversidad de la muestra(alpha-diversity). Se usa distancia WUnifrac para calcular similitud entre la composición de las muestras (Beta-diversity). Se usan non-metric dimensional scaling (NMDS) para el análisis de ordenación basándose en la distancia WUnifrac. Se usa el paquete _lefser_ para determinar géneros bacterianos diferencialmente abundantes entre grupos formados por las variables de interés.
 
 # Resultados
 
@@ -68,17 +68,17 @@ Se usan estimadores Chao1 y Shannon para quantificar los paramteros de riqueza y
 
 _Deliverables: FinalMetadata.xls y 16SDataAvailability.xls_
 
-Cada uno de los ficheros FASTQ esta identificado con un código del formato _11754AAC-AFF-2A_ que identifica una muestra de heces. Existen datos de secuenciación para 53 muestras, incluyendi controles y muestras de heces recogidas durante el ensayo. Se proporcionan metadatos para 47 identificadores muestra de heces esta ligada a un _Code_ que identifica la muestra y un _Individuo_ que identifica al animal del que se han obtenido las heces. Una de las muestras corresponde a un animal (dog_name="Charlotte") que solo ha proporcionado una muestra. Esta muestra se eliminara de los análisis apareados. Además, para cada muestra se dispone de las siguientes variables: 
+Cada uno de los ficheros FASTQ esta identificado con un código del formato _11754AAC-AFF-2A_ que identifica una muestra de heces. Existen datos de secuenciación para 53 muestras, incluyendo controles y muestras de heces recogidas durante el ensayo. Se proporcionan metadatos para 47 identificadores muestra de heces esta ligada a un _Code_ que identifica la muestra y un _Individuo_ que identifica al animal del que se han obtenido las heces. Una de las muestras corresponde a un animal (dog_name="Charlotte") que solo ha proporcionado una muestra. Esta muestra se eliminará de los análisis apareados. Además, para cada muestra se dispone de las siguientes variables: 
 
 * ID: Identificador numérico del animal
 * dog_name: Nombre del animal
-* treatment: Tipo de dieta (d/w1/w2). "d" denota dieta basada en pienso seco. "w1" denota dieta basada en combinación de pienso seco y pienso húmedo. "w2" denota dieta basada en combinación de pienso seco y doble proporción de pienso humedo.
-* dry_wet: Agregacion de la variable treatment en d/w
+* treatment: Tipo de dieta (d/w1/w2). "d" denota dieta basada en pienso seco. "w1" denota dieta basada en combinación de pienso seco y pienso húmedo. "w2" denota dieta basada en combinación de pienso seco y doble proporción de pienso húmedo.
+* dry_wet: Agregación de la variable treatment en d/w
 * T0_bw: Peso corporal basal
 * size: Tamaño del animal (*S*mall / *M*edium)
 * neutered: Booleano relativo a la castración del animal
 * BCS:
-* time_point: punto temporal (t0 / t1). "t0" denota el punto temporal antes de la intervencion (cambio de dieta) y t1, el punto temporal despues del cambio de dieta segun el diseño del estudio.
+* time_point: punto temporal (t0 / t1). "t0" denota el punto temporal antes de la intervención (cambio de dieta) y t1, el punto temporal despues del cambio de dieta segun el diseño del estudio.
 
 De las 53 muestras disponibles, 6 muestras pertenecen a controles que no se usaran para el análisis mas alla del control de calidad:
 
@@ -86,7 +86,7 @@ De las 53 muestras disponibles, 6 muestras pertenecen a controles que no se usar
 * BA, PCR1, PCR2 y Ext  corresponden con un blanco ambiental y dos blancos de PCR y uno de extracción.
 * Neg: Control Negativo.
 
-En el dataset resultante, se usaran exclusivamente las ASV anotadas taxonómicamente a Bacteria o Arqueas (Kingdom = Archaea o Kingdom = Bacteria)
+En el _dataset_ resultante, se usaran exclusivamente las ASV anotadas taxonomicamente a Bacteria o Arqueas (Kingdom = Archaea o Kingdom = Bacteria)
 
 ```{r Consolidacion de datos y metadatos, echo=F, message=FALSE, warning=FALSE, paged.print=FALSE}
 suppressWarnings(require(phyloseq))
@@ -133,13 +133,13 @@ max_throughput<-otu_table(ps_silva) %>% colSums() %>% max()
 saveRDS(ps_silva,file="data/ps_silva.rds")
 ```
 
-Las caracteristicas del dataset a analizar son:
+Las características del dataset a analizar son:
  
  * 47 muestras de microbioma fecal de perros: 
     ** 24 de punto t0 y 23 de punto t1
  * 1 muestra mock con composición conocida.
- * un total de `r phyloseq::ntaxa(ps_silva)` ASV incluyendo singleton, al final del análisi de secuencia
- * Asignación taxonomica hasta nivel de genero bacteriano para cada ASV
+ * un total de `r phyloseq::ntaxa(ps_silva)` ASV incluyendo _singleton_, al final del análisis de secuencia
+ * Asignación taxonómica hasta nivel de genero bacteriano para cada ASV
  * Arbol filogenético asociado a las taxas(ASV), necesario para calcular distancias de beta-diversidad WUnifrac.
  
 ```{r data summary,eval=T, echo=F, message=FALSE, warning=FALSE, paged.print=FALSE}
