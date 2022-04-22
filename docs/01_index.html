@@ -293,7 +293,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -302,7 +302,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -314,7 +314,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2022-04-22
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Affinity_Mar2022/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -330,12 +330,12 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown is ignored by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -449,56 +449,86 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/Index.Rmd</code>) and HTML (<code>docs/Index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/TreeTopUnder/Affinity_Mar2022/blob/083253f0e412f1edc6e03108cb87cca45c762b72/analysis/Index.Rmd" target="_blank">083253f</a>
-</td>
-<td>
-Marc Noguera-Julian
-</td>
-<td>
-2022-04-09
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
+<div id="datos-del-proyecto" class="section level1">
+<h1>Datos del Proyecto</h1>
+<p>Propuesta de análisis de datos de microbioma fecal por 16s en ensayo clínico. El ensayo consta de una intervención nutricional en tres grupos independientes de perros domésticos, mediante cambio de pienso en la dieta. En cada grupo se realiza el cambio de dieta a dieta seca o dieta húmeda de tipo 1 o tipo 2 (variable treatment: d/w1/w2). La clasificación de la dieta que se subministra al animal también se clasifica en una variable binaria (dry_wet) que toma los valores d(dry) o w(wet) Asimismo, cada animal puede estar esterilizado o no (variable neutered Y/N)</p>
+<p>Codigo TreeTopUnder: AffinityDogs-16S</p>
+<p>Cliente:</p>
+<ul>
+<li>VetGenomics – Olga Francino Martí</li>
+<li>Parc de Recerca de la UAB.Edifici Eureka. Campus UAB. 08193 Bellaterra. Barcelona. Spain.</li>
+<li>Contacto: Olga Francino Martí (<a href="mailto:direccio@vetgenomics.com" class="email">direccio@vetgenomics.com</a>)</li>
+</ul>
+</div>
+<div id="objetivo" class="section level1">
+<h1>Objetivo</h1>
+<p>El objetivo del estudio es caracterizar los cambios en el microbioma intestinal canino en perros que se someten a un cambio de dieta.</p>
+</div>
+<div id="métodos" class="section level1">
+<h1>Métodos</h1>
+<div id="analisis-de-datos-de-secuencia." class="section level2">
+<h2>Analisis de datos de secuencia.</h2>
+<p>Los datos crudos recibidos (formato FASTQ) se han obtenido usando un dieseño de amplicon unico en la region 16S del gen del RNA ribosomico (rDNA), amplificando la sub-region variable V3-V4 mediante PCR y usando secuenciación de última generación (Illumina/MiSeq) sobre las librerias obtenidas. Asi, las lecturas crudas obtenides tienen una longitud de 300 nt en un esquema paired-end (300 nt en lecturas forward y 300 nt en lecturas en reverse) sobre un amplicon de entre 450 y 500 nt, por lo que las lecturas forward y reverse tienen cierto grado de solapamiento que se usa para mejorar la calidad de los datos. En base a los datos crudos obtenidos de muestras fecales proporcionadas se ha realizado el análisis de secuencia dentro del framework R::DADA2. Este software nos permite obtener secuencias exactas de las variantes estudiadas (Amplicon Sequence Variants o ASV) y una informació de contaje y asignación taxonómica de cada una de ellas. El proceso de análisi se secuencia se divide en los siguientes pasos:</p>
+<ul>
+<li>Control de calidad. Se eliminan las secuencias con demasiado error acumulado en la lectura forward o reverse, de froma independiente. Se eliminan las secuencias demasiados cortas.</li>
+<li>Se calcula el modelo de error especifico del experimento de secuenciación.</li>
+<li>Se utilitza el modelo de error obtenido para inferir las variantes ASV a partir de las lecturas</li>
+<li>Se solapan las lecturas forward y reverse para obtener una secuencia unica por fragmento.</li>
+<li>Se eliminan del dataset las secuencias quimericas provenientes de reacciones PCR incompletas.</li>
+<li>Se asigna cada una de las variantes ASV a un grupo taxonomico, usando la base de datos Silva (v138)</li>
+<li>Usando las secuencias genéticas de cada una de las variantes ASV se calcula un alineamiento multiple y un arbol filogenético que relaciona evolutivamente las ASV entre ellas.</li>
+<li>Se empaquetan los resultados en un paquete de datos tipo R::phyloseq para el análisis posterior.</li>
+</ul>
+<p>De esta forma, obtenemos un paquete de datos que contiene entidades ASV representativas de los diferentes taxones bacterianos presentes en la muestra y, para cada muestra, valores de contaje cuantitativo de cada uno de estos taxones. Ademas, obtenemos la distancia genética entre pares de taxones que nos permitirá calcular indiced de similitud entre las muestras.</p>
+<p>El numero de secuencias obtenidas para este proceso, después de todos los pasos de proceso y control de calidad debe ser suficiente para cada muestra para poder caracterizar el microbioma de la muestra.</p>
+<p>Se usan estimadores Chao1 y Shannon para quantificar los parámetros de riqueza y diversidad de la muestra(alpha-diversity). Se usan tests no-paramétricos para comparar parametros de alfa-diversidad y beta-diversidad entre grupos formados por las variables de interés. Se usan estimadores Chao1 y Shannon para cuantificar los parámetros de riqueza y diversidad de la muestra(alpha-diversity). Se usa distancia WUnifrac para calcular similitud entre la composición de las muestras (Beta-diversity). Se usan non-metric dimensional scaling (NMDS) para el análisis de ordenación basándose en la distancia WUnifrac. Se usa el paquete <em>lefser</em> para determinar géneros bacterianos diferencialmente abundantes entre grupos formados por las variables de interés.</p>
+</div>
+</div>
+<div id="resultados" class="section level1">
+<h1>Resultados</h1>
+<div id="metadatos" class="section level2">
+<h2>Metadatos</h2>
+<p><em>Deliverables: FinalMetadata.xls y 16SDataAvailability.xls</em></p>
+<p>Cada uno de los ficheros FASTQ esta identificado con un código del formato <em>11754AAC-AFF-2A</em> que identifica una muestra de heces. Existen datos de secuenciación para 53 muestras, incluyendo controles y muestras de heces recogidas durante el ensayo. Se proporcionan metadatos para 47 identificadores muestra de heces esta ligada a un <em>Code</em> que identifica la muestra y un <em>Individuo</em> que identifica al animal del que se han obtenido las heces. Una de las muestras corresponde a un animal (dog_name=“Charlotte”) que solo ha proporcionado una muestra. Esta muestra se eliminará de los análisis apareados. Además, para cada muestra se dispone de las siguientes variables:</p>
+<ul>
+<li>ID: Identificador numérico del animal</li>
+<li>dog_name: Nombre del animal</li>
+<li>treatment: Tipo de dieta (d/w1/w2). “d” denota dieta basada en pienso seco. “w1” denota dieta basada en combinación de pienso seco y pienso húmedo. “w2” denota dieta basada en combinación de pienso seco y doble proporción de pienso húmedo.</li>
+<li>dry_wet: Agregación de la variable treatment en d/w</li>
+<li>T0_bw: Peso corporal basal</li>
+<li>size: Tamaño del animal (<em>S</em>mall / <em>M</em>edium)</li>
+<li>neutered: Booleano relativo a la castración del animal</li>
+<li>BCS:</li>
+<li>time_point: punto temporal (t0 / t1). “t0” denota el punto temporal antes de la intervención (cambio de dieta) y t1, el punto temporal despues del cambio de dieta segun el diseño del estudio.</li>
+</ul>
+<p>De las 53 muestras disponibles, 6 muestras pertenecen a controles que no se usaran para el análisis mas alla del control de calidad:</p>
+<ul>
+<li>MOCK, son controles positivos <em>Mock</em> con una composición conocida y predeterminada.</li>
+<li>BA, PCR1, PCR2 y Ext corresponden con un blanco ambiental y dos blancos de PCR y uno de extracción.</li>
+<li>Neg: Control Negativo.</li>
+</ul>
+<p>En el <em>dataset</em> resultante, se usaran exclusivamente las ASV anotadas taxonomicamente a Bacteria o Arqueas (Kingdom = Archaea o Kingdom = Bacteria)</p>
+<p><img src="figure/01_index.Rmd/Consolidacion%20de%20datos%20y%20metadatos-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Las características del dataset a analizar son:</p>
+<ul>
+<li>47 muestras de microbioma fecal de perros: ** 24 de punto t0 y 23 de punto t1</li>
+<li>1 muestra mock con composición conocida.</li>
+<li>un total de 2841 ASV incluyendo <em>singleton</em>, al final del análisis de secuencia</li>
+<li>Asignación taxonómica hasta nivel de genero bacteriano para cada ASV</li>
+<li>Arbol filogenético asociado a las taxas(ASV), necesario para calcular distancias de beta-diversidad WUnifrac.</li>
+</ul>
+<pre><code>phyloseq-class experiment-level object
+otu_table()   OTU Table:         [ 2841 taxa and 47 samples ]
+sample_data() Sample Data:       [ 47 samples by 23 sample variables ]
+tax_table()   Taxonomy Table:    [ 2841 taxa by 6 taxonomic ranks ]
+phy_tree()    Phylogenetic Tree: [ 2841 tips and 2839 internal nodes ]</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -522,20 +552,68 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.7.0
+ [1] forcats_0.5.1    stringr_1.4.0    dplyr_1.0.8      purrr_0.3.4     
+ [5] readr_2.1.2      tidyr_1.2.0      tibble_3.1.6     ggplot2_3.3.5   
+ [9] tidyverse_1.3.1  phylosmith_1.0.6 here_1.0.1       pander_0.6.5    
+[13] phyloseq_1.38.0  workflowr_1.7.0 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8.3     compiler_4.1.1   bslib_0.3.1      pillar_1.7.0    
- [5] later_1.3.0      git2r_0.30.1     jquerylib_0.1.4  tools_4.1.1     
- [9] getPass_0.2-2    digest_0.6.29    jsonlite_1.8.0   evaluate_0.15   
-[13] tibble_3.1.6     lifecycle_1.0.1  pkgconfig_2.0.3  rlang_1.0.2     
-[17] cli_3.2.0        rstudioapi_0.13  yaml_2.3.5       xfun_0.30       
-[21] fastmap_1.1.0    httr_1.4.2       stringr_1.4.0    knitr_1.37      
-[25] vctrs_0.3.8      fs_1.5.2         sass_0.4.0       rprojroot_2.0.2 
-[29] glue_1.6.2       R6_2.5.1         processx_3.5.2   fansi_1.0.2     
-[33] rmarkdown_2.13   callr_3.7.0      magrittr_2.0.2   whisker_0.4     
-[37] ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2  ellipsis_0.3.2  
-[41] httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6    crayon_1.5.0    </code></pre>
+  [1] utf8_1.2.2             tidyselect_1.1.2       grid_4.1.1            
+  [4] gmp_0.6-4              Rtsne_0.15             munsell_0.5.0         
+  [7] codetools_0.2-18       effectsize_0.6.0.1     units_0.8-0           
+ [10] withr_2.5.0            colorspace_2.0-3       Biobase_2.54.0        
+ [13] highr_0.9              knitr_1.37             rstudioapi_0.13       
+ [16] stats4_4.1.1           ggsignif_0.6.3         rJava_1.0-6           
+ [19] labeling_0.4.2         git2r_0.30.1           GenomeInfoDbData_1.2.7
+ [22] polyclip_1.10-0        farver_2.1.0           datawizard_0.3.0      
+ [25] rhdf5_2.38.0           rprojroot_2.0.2        vctrs_0.3.8           
+ [28] generics_0.1.2         xfun_0.30              BWStest_0.2.2         
+ [31] R6_2.5.1               GenomeInfoDb_1.30.1    graphlayouts_0.8.0    
+ [34] bitops_1.0-7           rhdf5filters_1.6.0     cachem_1.0.6          
+ [37] reshape_0.8.8          assertthat_0.2.1       promises_1.2.0.1      
+ [40] scales_1.1.1           ggraph_2.0.5           gtable_0.3.0          
+ [43] multcompView_0.1-8     processx_3.5.2         xlsx_0.6.5            
+ [46] tidygraph_1.2.0        rlang_1.0.2            zeallot_0.1.0         
+ [49] PMCMRplus_1.9.3        splines_4.1.1          prismatic_1.1.0       
+ [52] broom_0.7.12           yaml_2.3.5             reshape2_1.4.4        
+ [55] modelr_0.1.8           backports_1.4.1        httpuv_1.6.5          
+ [58] RMySQL_0.10.23         tools_4.1.1            logging_0.10-108      
+ [61] ellipsis_0.3.2         jquerylib_0.1.4        biomformat_1.22.0     
+ [64] RColorBrewer_1.1-2     proxy_0.4-26           BiocGenerics_0.40.0   
+ [67] WRS2_1.1-3             Rcpp_1.0.8.3           plyr_1.8.6            
+ [70] zlibbioc_1.40.0        classInt_0.4-3         RCurl_1.98-1.6        
+ [73] ps_1.6.0               viridis_0.6.2          correlation_0.8.0     
+ [76] S4Vectors_0.32.3       haven_2.4.3            ggrepel_0.9.1         
+ [79] cluster_2.1.2          fs_1.5.2               magrittr_2.0.2        
+ [82] data.table_1.14.2      reprex_2.0.1           mvtnorm_1.1-3         
+ [85] whisker_0.4            xlsxjars_0.6.1         hms_1.1.1             
+ [88] patchwork_1.1.1        evaluate_0.15          readxl_1.3.1          
+ [91] IRanges_2.28.0         gridExtra_2.3          compiler_4.1.1        
+ [94] ggstatsplot_0.9.1      KernSmooth_2.23-20     crayon_1.5.0          
+ [97] htmltools_0.5.2        mgcv_1.8-39            mc2d_0.1-21           
+[100] later_1.3.0            tzdb_0.2.0             RcppParallel_5.1.5    
+[103] lubridate_1.8.0        DBI_1.1.2              SuppDists_1.1-9.7     
+[106] kSamples_1.2-9         tweenr_1.0.2           dbplyr_2.1.1          
+[109] MASS_7.3-55            sf_1.0-7               boot_1.3-28           
+[112] Matrix_1.4-0           ade4_1.7-18            permute_0.9-7         
+[115] cli_3.2.0              parallel_4.1.1         insight_0.16.0        
+[118] igraph_1.2.11          pkgconfig_2.0.3        getPass_0.2-2         
+[121] statsExpressions_1.3.0 xml2_1.3.3             paletteer_1.4.0       
+[124] foreach_1.5.2          bslib_0.3.1            multtest_2.50.0       
+[127] XVector_0.34.0         rvest_1.0.2            callr_3.7.0           
+[130] digest_0.6.29          parameters_0.17.0      vegan_2.5-7           
+[133] Biostrings_2.62.0      rmarkdown_2.13         cellranger_1.1.0      
+[136] lifecycle_1.0.1        nlme_3.1-155           jsonlite_1.8.0        
+[139] modules_0.10.0         Rhdf5lib_1.16.0        viridisLite_0.4.0     
+[142] fansi_1.0.2            pillar_1.7.0           lattice_0.20-45       
+[145] fastmap_1.1.0          httr_1.4.2             survival_3.3-1        
+[148] glue_1.6.2             bayestestR_0.11.5      iterators_1.0.14      
+[151] ggforce_0.3.3          class_7.3-20           stringi_1.7.6         
+[154] sass_0.4.0             performance_0.8.0      rematch2_2.1.2        
+[157] memoise_2.0.1          Rmpfr_0.8-7            e1071_1.7-9           
+[160] ape_5.6-2             </code></pre>
+</div>
+</div>
 </div>
 
 
